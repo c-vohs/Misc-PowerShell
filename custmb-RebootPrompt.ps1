@@ -1,0 +1,3 @@
+$scriptblock = { C:\Paxis\custmb.exe header="Paxis Maintenance" Position=center Theme=win10 icon="C:\Paxis\pax_icon_yellow.ico" message="Your machine is currently pending a reboot. You may delay this or reboot now.\r\nMachine will automatically reboot in 15 minutes if no response chosen.\r\nPlease contact us at 865-588-9823 with questions or concerns." OnTop=1 button="Remind Me 24h|24h_delay" button="Remind Me 2h|2h_delay" button="Remind Me 30m|30m_delay" button="Reboot Now|reboot|900" | out-file "C:\Paxis\RebootResponse.txt" }
+
+Invoke-AsCurrentUser -ScriptBlock $scriptblock

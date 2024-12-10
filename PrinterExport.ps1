@@ -1,0 +1,1 @@
+Get-Printer | select Name, @{N = 'Model'; E = { $_.DriverName } }, Location, @{N = 'Printer Status'; E = { $_.PrinterStatus } }, @{N = 'Port Name'; E = { $_.PortName } }, @{N = 'Total Print Jobs'; E = { $_.JobCount } }, Shared, @{N = 'Share Name'; E = { $_.ShareName } }, Published | Export-CSV -NoTypeInformation C:\temp\PrinterExport.csv

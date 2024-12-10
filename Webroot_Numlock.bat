@@ -1,0 +1,1 @@
+reg add HKLM\SYSTEM\CurrentControlSet\services\ikbevent /v Type /t REG_DWORD /d 1

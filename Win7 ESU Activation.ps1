@@ -1,0 +1,1 @@
+﻿cscript C:\Windows\System32\slmgr.vbs /ato 77db037b-95c3-48d7-a3ab-a9c6d41093e0 > C:\kworking\slmgractivate.txt
