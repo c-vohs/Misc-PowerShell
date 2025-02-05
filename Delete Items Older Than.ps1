@@ -15,6 +15,13 @@ $logPath = Split-Path -Path $Path -Parent
 $items = Get-ChildItem "$Path\*.*" 
 $cutOffDate = (get-date).adddays(-$DaysToKeep).Date
 
+# Check if the log is too large and purge if it is.
+if (Test-Path "$logPath\deleteLog.txt") {
+        if ((Get-item "$logPath\deleteLog.txt").Length -gt 3kb) {
+            Remove-item "$logPath\deleteLog.txt"
+        }
+}
+
 # Initialize the logfile with current date
 get-date | out-file -Append "$logPath\deleteLog.txt"
 
@@ -29,11 +36,4 @@ if ($items) {
 }
 else {
     "No items in folder" | out-file -Append "$logPath\deleteLog.txt"
-}
-
-# Check if the log is too large and purge if it is.
-if (Test-Path "$logPath\deleteLog.txt") {
-        if ((Get-item "$logPath\deleteLog.txt").Length -gt 3kb) {
-            Remove-item "$logPath\deleteLog.txt"
-        }
 }
